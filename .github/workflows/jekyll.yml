@@ -28,19 +28,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1 # Automatically manages Bundler version
+        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
         with:
-          ruby-version: '3.2.2' # Use Ruby 3.2.2
-          bundler-cache: true # This automatically installs the required Bundler version
+          ruby-version: '2.7' # Change to a compatible Ruby version
+          bundler-cache: true
+          cache-version: 0
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
-        run: |
-          bundle install # This will use the Bundler version compatible with Ruby 3.2.2
-          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
