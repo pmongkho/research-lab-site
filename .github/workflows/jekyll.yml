@@ -38,7 +38,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Configure Nokogiri to use system libraries
+      - name: Configure Bundler
         run: bundle config set --local build.nokogiri --use-system-libraries
 
       - name: Install dependencies
